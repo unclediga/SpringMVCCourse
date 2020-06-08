@@ -20,10 +20,18 @@
 <body>
 <jsp:include page="fragments/header.jsp"/>
 <div class="container">
-    <form>
+    <form method="post">
         <div class="form-group">
             <label for="project-name">Name</label>
             <input type="text" class="form-control" id="project-name" name="name">
+        </div>
+        <div class="form-group">
+            <label for="project_type">Type</label>
+            <select name="type" class="selectpicker" id="project_type">
+                <option></option>
+                <option value="single">Single Year</option>
+                <option value="multi">Multi-Year</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="sponsor">Sponsor</label>
@@ -40,6 +48,10 @@
         <div class="form-group">
             <label for="project-name">Description</label>
             <textarea class="form-control" rows="3"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="special">Special</label>
+            <input type="checkbox" class="form-control" id="special" name="special">
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
