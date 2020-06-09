@@ -18,7 +18,7 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                             <a class="dropdown-item" href="<spring:url value="/project/add"/>">Add</a>
-                            <a class="dropdown-item" href="#">Find</a>
+                            <a class="dropdown-item" href="<spring:url value="/project/find"/>">Find</a>
                         </div>
                     </div>
                 </li>
