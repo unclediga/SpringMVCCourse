@@ -26,6 +26,10 @@
             <input type="text" class="form-control" id="project-name" name="name">
         </div>
         <div class="form-group">
+            <label for="sponsor">Sponsor</label>
+            <input type="text" class="form-control" id="sponsor" name="sponsor">
+        </div>
+        <div class="form-group">
             <label for="project_type">Type</label>
             <select name="type" class="selectpicker" id="project_type">
                 <option></option>
@@ -34,20 +38,16 @@
             </select>
         </div>
         <div class="form-group">
-            <label for="sponsor">Sponsor</label>
-            <input type="text" class="form-control" id="sponsor" name="sponsor">
-        </div>
-        <div class="form-group">
             <label for="funds">Authorized Funds</label>
-            <input type="text" class="form-control" id="funds" name="authorized_funds">
+            <input type="text" class="form-control" id="funds" name="authorizedFunds">
         </div>
         <div class="form-group">
             <label for="hours">Authorized Hours</label>
-            <input type="text" class="form-control" id="hours" name="authorized_hours">
+            <input type="text" class="form-control" id="hours" name="authorizedHours">
         </div>
         <div class="form-group">
-            <label for="project-name">Description</label>
-            <textarea class="form-control" rows="3"></textarea>
+            <label for="project-description">Description</label>
+            <textarea id="project-description" class="form-control" rows="3" name="description"></textarea>
         </div>
         <div class="form-group">
             <label for="special">Special</label>
