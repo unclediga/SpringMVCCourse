@@ -1,6 +1,7 @@
 <%--suppress JSUnresolvedLibraryURL --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Project Manager</title>
@@ -25,7 +26,7 @@
     </div>
 
     <spring:url value="/resource/save" var="formUrl"/>
-    <form method="POST" action="${formUrl}">
+    <form:form method="POST" action="${formUrl}" modelAttribute="resource">
         <div class="form-group">
             <label for="name">Name</label>
             <input name="name" id="name" type="text" class="form-control">
@@ -47,7 +48,7 @@
             <input name="unitOfMeasure" id="unit" type="text" class="form-control">
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form:form>
 
 </div>
 </body>
