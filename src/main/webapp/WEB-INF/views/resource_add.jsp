@@ -29,7 +29,7 @@
     <form:form method="POST" action="${formUrl}" modelAttribute="resource">
         <div class="form-group">
             <label for="name">Name</label>
-            <input name="name" id="name" type="text" class="form-control">
+            <form:input path="name" id="name" type="text" cssClass="form-control"/>
         </div>
         <div class="form-group">
             <label for="type">Type</label>

@@ -17,8 +17,8 @@ public class ResourceController {
     }
 
     @RequestMapping(path = "/save")
-    public String save() {
-        System.out.println("invoking the save() method");
+    public String save(@ModelAttribute Resource resource) {
+        System.out.println(resource);
         return "resource_add";
     }
 }
