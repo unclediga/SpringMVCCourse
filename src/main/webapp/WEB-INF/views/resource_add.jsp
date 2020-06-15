@@ -21,44 +21,36 @@
 <jsp:include page="fragments/header.jsp"/>
 <div class="container">
     <div class="row">
-        <h1>Project</h1>
+        <h1>Resource</h1>
     </div>
-    <form method="post">
+
+    1. <spring:url value="/resource/save"/><br/>
+    2. <spring:url value="/resource/save" context="/app2"/>
+
+    <form method="POST" action="<spring:url value="/resource/save"/>">
         <div class="form-group">
-            <label for="project-name">Name</label>
-            <input type="text" class="form-control" id="project-name" name="name">
+            <label for="name">Name</label>
+            <input name="name" id="name" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="sponsor">Sponsor</label>
-            <input type="text" class="form-control" id="sponsor" name="sponsor">
-        </div>
-        <div class="form-group">
-            <label for="project_type">Type</label>
-            <select name="type" class="selectpicker" id="project_type">
-                <option></option>
-                <option value="single">Single Year</option>
-                <option value="multi">Multi-Year</option>
+            <label for="type">Type</label>
+            <select name="type" id="type" class="form-control">
+                <option value="material">Material</option>
+                <option value="other">Other</option>
+                <option value="staff">Staff</option>
             </select>
         </div>
         <div class="form-group">
-            <label for="funds">Authorized Funds</label>
-            <input type="text" class="form-control" id="funds" name="authorizedFunds">
+            <label for="cost">Cost</label>
+            <input name="cost" id="cost" type="text" class="form-control">
         </div>
         <div class="form-group">
-            <label for="hours">Authorized Hours</label>
-            <input type="text" class="form-control" id="hours" name="authorizedHours">
+            <label for="unit">Unit Of Measure</label>
+            <input name="unitOfMeasure" id="unit" type="text" class="form-control">
         </div>
-        <div class="form-group">
-            <label for="project-description">Description</label>
-            <textarea id="project-description" class="form-control" rows="3" name="description"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="special">Special</label>
-            <input type="checkbox" class="form-control" id="special" name="special">
-        </div>
-
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+
 </div>
 </body>
 </html>

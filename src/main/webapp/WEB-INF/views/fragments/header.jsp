@@ -29,8 +29,8 @@
                             Resources
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                            <a class="dropdown-item" href="#">Add</a>
-                            <a class="dropdown-item" href="#">Find</a>
+                            <a class="dropdown-item" href="<spring:url value="/resource/add"/>">Add</a>
+                            <a class="dropdown-item" href="<spring:url value="/resource/find"/>">Find</a>
                         </div>
                     </div>
                 </li>
