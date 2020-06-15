@@ -24,10 +24,8 @@
         <h1>Resource</h1>
     </div>
 
-    1. <spring:url value="/resource/save"/><br/>
-    2. <spring:url value="/resource/save" context="/app2"/>
-
-    <form method="POST" action="<spring:url value="/resource/save"/>">
+    <spring:url value="/resource/save" var="formUrl"/>
+    <form method="POST" action="${formUrl}">
         <div class="form-group">
             <label for="name">Name</label>
             <input name="name" id="name" type="text" class="form-control">
