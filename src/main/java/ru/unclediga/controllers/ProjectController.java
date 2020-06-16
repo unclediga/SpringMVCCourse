@@ -1,15 +1,17 @@
 package ru.unclediga.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ru.unclediga.data.entities.Project;
 import ru.unclediga.data.services.ProjectService;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.logging.Logger;
 
 @Controller
@@ -32,10 +34,10 @@ public class ProjectController {
         return "projects";
     }
 
-    @RequestMapping("/add")
-    public String addProject(HttpSession session) {
-        System.out.println("invoke addProject");
-        session.setAttribute("token", "12345");
+    @RequestMapping(value = "/add",method = RequestMethod.GET)
+    public String addProject(Model model) {
+        model.addAttribute("types", new ArrayList<>(Arrays.asList(" ", "Single Year","Multi Year")));
+        model.addAttribute("project", new Project());
         return "project_add";
     }
 

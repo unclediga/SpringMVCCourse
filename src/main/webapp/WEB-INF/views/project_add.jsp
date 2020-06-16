@@ -1,6 +1,7 @@
 <%--suppress JSUnresolvedLibraryURL --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Project Manager</title>
@@ -23,42 +24,47 @@
     <div class="row">
         <h1>Project</h1>
     </div>
-    <form method="post">
+    <spring:url value="/project/add" var="formUrl"/>
+    <form:form method="post" action="${formUrl}" modelAttribute="project" >
         <div class="form-group">
             <label for="project-name">Name</label>
-            <input type="text" class="form-control" id="project-name" name="name">
+            <form:input class="form-control" id="project-name"  path="name" />
         </div>
         <div class="form-group">
-            <label for="sponsor">Sponsor</label>
-            <input type="text" class="form-control" id="sponsor" name="sponsor">
+            <label for="sponsor-name">Sponsor name</label>
+            <form:input class="form-control" id="sponsor-name" path="sponsor.name"/>
+        </div>
+        <div class="form-group">
+            <label for="sponsor-phone">Sponsor phone</label>
+            <form:input class="form-control" id="sponsor-phone" path="sponsor.phone"/>
+        </div>
+        <div class="form-group">
+            <label for="sponsor-email">Sponsor email</label>
+            <form:input class="form-control" id="sponsor-email" path="sponsor.email"/>
         </div>
         <div class="form-group">
             <label for="project_type">Type</label>
-            <select name="type" class="selectpicker" id="project_type">
-                <option></option>
-                <option value="single">Single Year</option>
-                <option value="multi">Multi-Year</option>
-            </select>
+            <form:select path="type" items="${types}" class="selectpicker" id="project_type"/>
         </div>
         <div class="form-group">
             <label for="funds">Authorized Funds</label>
-            <input type="text" class="form-control" id="funds" name="authorizedFunds">
+            <form:input class="form-control" id="funds" path="authorizedFunds"/>
         </div>
         <div class="form-group">
             <label for="hours">Authorized Hours</label>
-            <input type="text" class="form-control" id="hours" name="authorizedHours">
+            <form:input lass="form-control" id="hours" path="authorizedHours"/>
         </div>
         <div class="form-group">
             <label for="project-description">Description</label>
-            <textarea id="project-description" class="form-control" rows="3" name="description"></textarea>
+            <form:textarea id="project-description" class="form-control" rows="3" path="description"/>
         </div>
         <div class="form-group">
             <label for="special">Special</label>
-            <input type="checkbox" class="form-control" id="special" name="special">
+            <form:checkbox class="form-control" id="special" path="special" />
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    </form:form>
 </div>
 </body>
 </html>
