@@ -1,6 +1,7 @@
 package ru.unclediga.data.entities;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Project {
     private Long projectId;
@@ -12,6 +13,7 @@ public class Project {
     private String year;
     private boolean special;
     private String type;
+    private List<String> pointOfContact;
 
     public Long getProjectId() {
         return projectId;
@@ -85,18 +87,27 @@ public class Project {
         this.type = type;
     }
 
+    public List<String> getPointOfContact() {
+        return pointOfContact;
+    }
+
+    public void setPointOfContact(List<String> pointOfContact) {
+        this.pointOfContact = pointOfContact;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
                 "projectId=" + projectId +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
-                ", sponsor='" + sponsor + '\'' +
+                ", sponsor=" + sponsor +
                 ", authorizedHours=" + authorizedHours +
                 ", authorizedFunds=" + authorizedFunds +
                 ", year='" + year + '\'' +
                 ", special=" + special +
                 ", type='" + type + '\'' +
+                ", pointOfContact=" + pointOfContact +
                 '}';
     }
 }
