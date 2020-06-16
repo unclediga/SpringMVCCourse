@@ -33,11 +33,7 @@
         </div>
         <div class="form-group">
             <label for="type">Type</label>
-            <select name="type" id="type" class="form-control">
-                <option value="material">Material</option>
-                <option value="other">Other</option>
-                <option value="staff">Staff</option>
-            </select>
+            <form:select path="type" items="${typeOptions}" cssClass="form-control"/>
         </div>
         <div class="form-group">
             <label for="cost">Cost</label>
