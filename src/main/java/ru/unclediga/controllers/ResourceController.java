@@ -18,6 +18,10 @@ public class ResourceController {
     public String add(Model model) {
         List<String> options = new LinkedList<>(Arrays.asList("Material", "Other", "Staff"));
         model.addAttribute("typeOptions", options);
+        List<String> radios = new LinkedList<>(Arrays.asList("Hours", "Piece", "Tons"));
+        model.addAttribute("radioOptions", radios);
+        List<String> checks = new LinkedList<>(Arrays.asList("Lead Time", "Special Rate", "Requires Approval"));
+        model.addAttribute("checkOptions", checks);
         model.addAttribute("resource", new Resource());
         return "resource_add";
     }

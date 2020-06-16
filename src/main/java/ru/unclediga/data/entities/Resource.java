@@ -1,6 +1,7 @@
 package ru.unclediga.data.entities;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 public class Resource {
     private Long resourceId;
@@ -8,6 +9,7 @@ public class Resource {
     private String type;
     private BigDecimal cost;
     private String unitOfMeasure;
+    private String[] indicators;
 
     public Long getResourceId() {
         return resourceId;
@@ -49,6 +51,14 @@ public class Resource {
         this.unitOfMeasure = unitOfMeasure;
     }
 
+    public String[] getIndicators() {
+        return indicators;
+    }
+
+    public void setIndicators(String[] indicators) {
+        this.indicators = indicators;
+    }
+
     @Override
     public String toString() {
         return "Resource{" +
@@ -57,6 +67,7 @@ public class Resource {
                 ", type='" + type + '\'' +
                 ", cost=" + cost +
                 ", unitOfMeasure='" + unitOfMeasure + '\'' +
+                ", indicators=" + Arrays.toString(indicators) +
                 '}';
     }
 }
