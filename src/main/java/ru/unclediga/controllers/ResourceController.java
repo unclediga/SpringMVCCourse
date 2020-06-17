@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 import ru.unclediga.data.entities.Resource;
 
 import java.util.Arrays;
@@ -50,9 +51,10 @@ public class ResourceController {
     }
 
     @RequestMapping(path = "/save")
-    public String save(@ModelAttribute Resource resource) {
+    public String save(@ModelAttribute Resource resource, SessionStatus status) {
         System.out.println("Invoking method save()");
         System.out.println(resource);
+        status.setComplete();
         return "redirect:/resource/add";
     }
 }
