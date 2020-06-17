@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import ru.unclediga.data.entities.Resource;
 
 import java.util.Arrays;
@@ -12,11 +13,19 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/resource")
+@SessionAttributes("resource")
 public class ResourceController {
 
     @RequestMapping("/add")
     public String add(Model model) {
+        System.out.println("Invoking method add()");
         return "resource_add";
+    }
+
+    @RequestMapping("/review")
+    public String review(@ModelAttribute Resource resource) {
+        System.out.println("Invoking method review()");
+        return "resource_review";
     }
 
     @ModelAttribute("resource")
@@ -42,7 +51,8 @@ public class ResourceController {
 
     @RequestMapping(path = "/save")
     public String save(@ModelAttribute Resource resource) {
+        System.out.println("Invoking method save()");
         System.out.println(resource);
-        return "resource_add";
+        return "redirect:/resource/add";
     }
 }

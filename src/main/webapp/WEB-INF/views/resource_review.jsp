@@ -2,6 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <title>Project Manager</title>
@@ -22,37 +23,41 @@
 <jsp:include page="fragments/header.jsp"/>
 <div class="container">
     <div class="row">
-        <h1>Resource</h1>
+        <h1>Resource Review</h1>
     </div>
 
-    <spring:url value="/resource/review" var="formUrl"/>
-    <form:form method="POST" action="${formUrl}" modelAttribute="resource">
         <div class="form-group">
             <label for="name">Name</label>
-            <form:input path="name" id="name" type="text" cssClass="form-control"/>
+            <input value="${resource.name}" id="name" type="text" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="type">Type</label>
-            <form:select path="type" items="${typeOptions}" cssClass="form-control"/>
+            <input value="${resource.type}" id="type" class="form-control"/>
         </div>
         <div class="form-group">
             <label for="cost">Cost</label>
-            <form:input path="cost" id="cost" type="text" class="form-control"/>
+            <input value="${resource.cost}" id="cost" type="text" class="form-control">
         </div>
         <div class="form-group">
             <label for="unit">Unit Of Measure</label>
-            <form:radiobuttons path="unitOfMeasure" items="${radioOptions}" id="unit" />
+            <c:forEach var="radio" items= "${resource.unitOfMeasure}" >
+                <span id="unit" >${radio}</span>
+            </c:forEach>
         </div>
         <div class="form-group">
             <label for="indicators">Indicators</label>
-            <form:checkboxes path="indicators" items="${checkOptions}" id="indicators" />
+            <c:forEach var="indicator" items= "${resource.indicators}" >
+                <span id="indicators" >${indicator}</span>
+            </c:forEach>
         </div>
         <div class="form-group">
             <label for="notes">Notes</label>
-            <form:textarea path="notes" id="notes"  rows="3" class="form-control"/>
+            <textarea  id="notes"  rows="3" class="form-control">${resource.notes}</textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form:form>
+        <spring:url value="/resource/add" var="addUrl"/>
+        <spring:url value="/resource/save" var="saveUrl"/>
+        <a href="${addUrl}" class="btn btn-primary">Edit</a>
+        <a href="${saveUrl}" class="btn btn-primary">Submit</a>
 
 </div>
 </body>
