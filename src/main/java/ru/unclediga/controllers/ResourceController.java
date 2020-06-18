@@ -29,9 +29,10 @@ public class ResourceController {
 
     @RequestMapping("/request")
     @ResponseBody
-    public String request(@ModelAttribute Resource resource) {
-        System.out.println("Invoking method review()");
-        return "The Request for name ["+resource.getName()+"] has been sent";
+    public String request(@RequestBody String resource) {
+        System.out.println("Invoking method request()");
+        System.out.println(resource);
+        return "The Request for name has been sent";
     }
 
     @ModelAttribute("resource")
