@@ -2,9 +2,7 @@ package ru.unclediga.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.unclediga.data.entities.Resource;
 
@@ -27,6 +25,13 @@ public class ResourceController {
     public String review(@ModelAttribute Resource resource) {
         System.out.println("Invoking method review()");
         return "resource_review";
+    }
+
+    @RequestMapping("/request")
+    @ResponseBody
+    public String request(@ModelAttribute Resource resource) {
+        System.out.println("Invoking method review()");
+        return "The Request for name ["+resource.getName()+"] has been sent";
     }
 
     @ModelAttribute("resource")
