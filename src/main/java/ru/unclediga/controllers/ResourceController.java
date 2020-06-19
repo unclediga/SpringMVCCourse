@@ -18,7 +18,13 @@ public class ResourceController {
     @RequestMapping("/add")
     public String add(Model model) {
         System.out.println("Invoking method add()");
+        if(1 == 1) throw new RuntimeException("Error ");
         return "resource_add";
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handleError(){
+        return "controller_error";
     }
 
     @RequestMapping("/review")
