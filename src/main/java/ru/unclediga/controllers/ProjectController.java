@@ -47,6 +47,7 @@ public class ProjectController {
     public String saveProject(@Validated @ModelAttribute Project project, Errors errors) {
         if (errors.hasErrors()) {
             System.out.println("The project did not validate.");
+            return "project_add";
         } else {
             System.out.println("The project is valid.");
         }
