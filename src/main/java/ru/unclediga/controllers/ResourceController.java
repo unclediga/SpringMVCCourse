@@ -22,7 +22,7 @@ public class ResourceController {
         return "resource_add";
     }
 
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(NullPointerException.class)
     public String handleError(){
         return "controller_error";
     }
