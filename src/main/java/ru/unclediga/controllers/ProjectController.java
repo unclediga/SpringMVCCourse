@@ -11,6 +11,7 @@ import ru.unclediga.data.entities.Project;
 import ru.unclediga.data.services.ProjectService;
 import ru.unclediga.data.validators.ProjectValidator;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.logging.Logger;
