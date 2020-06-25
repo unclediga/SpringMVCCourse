@@ -8,13 +8,13 @@ import ru.unclediga.data.entities.Sponsor;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/home")
+    @RequestMapping("/")
     public String goHome(Model model) {
         final Project project = new Project();
         project.setName("First Project");
         project.setSponsor(new Sponsor("Nasa","123-23-24","info@nasa.gov"));
         project.setDescription("This is a simple project sponsored by NASA");
         model.addAttribute("currentProject", project);
-        return "home";
+        return "welcome";
     }
 }
