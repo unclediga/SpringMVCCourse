@@ -22,6 +22,11 @@ public class ProjectController {
     @Autowired
     ProjectService projectService;
 
+    @RequestMapping("/find/{projectId}")
+    public @ResponseBody Project findProjectObject(Model model, @PathVariable("projectId") Long projectId) {
+        return projectService.find(projectId);
+    }
+
     @RequestMapping("/{projectId}")
     public String findProject(Model model, @PathVariable("projectId") Long projectId) {
         Logger logger = Logger.getGlobal();
