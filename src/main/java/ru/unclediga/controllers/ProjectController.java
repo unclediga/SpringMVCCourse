@@ -58,7 +58,7 @@ public class ProjectController {
         }
         System.out.println("invoke saveProject");
         System.out.println(project);
-        return "project_add";
+        return "redirect:/project/find";
     }
 
     @InitBinder
