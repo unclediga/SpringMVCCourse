@@ -29,6 +29,14 @@ public class ProjectService {
         return list.size() > 0 ? list.get(0) : null;
     }
 
+    public void save(Project project) {
+        Project project1 = find(project.getProjectId());
+        if (project1 != null) {
+            projects.remove(project1);
+        }
+        projects.add(project);
+    }
+
     private Project createProject(String title, String description) {
         Project project = new Project();
         project.setName(title);

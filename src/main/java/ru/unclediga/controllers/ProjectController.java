@@ -7,6 +7,8 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.unclediga.data.entities.Project;
 import ru.unclediga.data.services.ProjectService;
 import ru.unclediga.data.validators.ProjectValidator;
@@ -49,7 +51,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveProject(@Validated @ModelAttribute Project project, Errors errors) {
+    public String saveProject(@Validated @ModelAttribute Project project, Errors errors, RedirectAttributes attributes) {
         if (errors.hasErrors()) {
             System.out.println("The project did not validate.");
             return "project_add";
@@ -58,7 +60,10 @@ public class ProjectController {
         }
         System.out.println("invoke saveProject");
         System.out.println(project);
-        return "redirect:/project/find";
+        project.setProjectId(55L);
+        projectService.save(project);
+        attributes.addAttribute("projectId", project.getProjectId().toString());
+        return "redirect:/";
     }
 
     @InitBinder
