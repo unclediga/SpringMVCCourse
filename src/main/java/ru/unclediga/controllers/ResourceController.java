@@ -12,7 +12,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
 @RequestMapping("/resource")
 @SessionAttributes("resource")
@@ -40,11 +39,6 @@ public class ResourceController {
     public String find(Model model) {
         model.addAttribute("resources", resourceService.findAll());
         return "resources";
-    }
-
-    @ExceptionHandler(NullPointerException.class)
-    public String handleError(){
-        return "controller_error";
     }
 
     @RequestMapping("/review")

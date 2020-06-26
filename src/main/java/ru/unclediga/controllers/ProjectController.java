@@ -65,9 +65,4 @@ public class ProjectController {
         attributes.addFlashAttribute("project", project);
         return "redirect:/";
     }
-
-    @InitBinder
-    public void initBinder(WebDataBinder binder) {
-        binder.addValidators(new ProjectValidator());
-    }
 }
