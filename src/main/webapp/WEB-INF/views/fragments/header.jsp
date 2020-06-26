@@ -34,6 +34,7 @@
                         </div>
                     </div>
                 </li>
+                <li>CURR DATE: ${currentDate}</li>
 
             </ul>
         </div>
