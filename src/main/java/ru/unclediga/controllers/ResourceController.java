@@ -1,25 +1,45 @@
 package ru.unclediga.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import ru.unclediga.data.entities.Resource;
+import ru.unclediga.data.services.ResourceService;
 
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
 @Controller
 @RequestMapping("/resource")
 @SessionAttributes("resource")
 public class ResourceController {
+
+    @Autowired
+    private ResourceService resourceService;
 
     @RequestMapping("/add")
     public String add(Model model) {
         System.out.println("Invoking method add()");
         if(1 == 1) throw new RuntimeException("Error ");
         return "resource_add";
+    }
+
+    @RequestMapping("/{resourceId}")
+    @ResponseBody
+    public Resource findResource(Model model, @PathVariable Long resourceId) {
+        final Resource resource = resourceService.find(resourceId);
+        System.out.println("find -> " + resource);
+        return resource;
+    }
+
+    @RequestMapping("/find")
+    public String find(Model model) {
+        model.addAttribute("resources", resourceService.findAll());
+        return "resources";
     }
 
     @ExceptionHandler(NullPointerException.class)
