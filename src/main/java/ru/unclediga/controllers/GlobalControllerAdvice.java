@@ -20,7 +20,7 @@ public class GlobalControllerAdvice {
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
-        binder.addValidators(new ProjectValidator());
+//        binder.addValidators(new ProjectValidator());
     }
 
     @ExceptionHandler(NullPointerException.class)

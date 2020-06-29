@@ -10,7 +10,16 @@
             http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd
             http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversion-service"/>
+
+    <bean id="conversion-service" class="org.springframework.context.support.ConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <bean class="ru.unclediga.converters.JulianDateConverter"/>
+            </list>
+        </property>
+    </bean>
+
     <bean class="ru.unclediga.HitCounter" scope="request">
         <aop:scoped-proxy/>
     </bean>

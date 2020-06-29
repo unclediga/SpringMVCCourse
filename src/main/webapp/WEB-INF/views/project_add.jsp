@@ -61,6 +61,10 @@
             <form:errors path="description" cssStyle="color: red"/>
         </div>
         <div class="form-group">
+            <label for="start_date">start date</label>
+            <form:input class="form-control" id="start_date" path="startDate"/>
+        </div>
+        <div class="form-group">
             <label for="poc">POC</label>
             <form:input class="form-control" id="poc" path="pointOfContact[0]"/>
         </div>

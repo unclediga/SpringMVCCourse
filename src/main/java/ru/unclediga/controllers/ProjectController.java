@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
+import org.springframework.validation.ObjectError;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -54,6 +55,9 @@ public class ProjectController {
     public String saveProject(@Validated @ModelAttribute Project project, Errors errors, RedirectAttributes attributes) {
         if (errors.hasErrors()) {
             System.out.println("The project did not validate.");
+            for (ObjectError o : errors.getAllErrors()) {
+                System.out.println("err: " + o.getObjectName() + " -> "  + o.getDefaultMessage());
+            }
             return "project_add";
         } else {
             System.out.println("The project is valid.");
