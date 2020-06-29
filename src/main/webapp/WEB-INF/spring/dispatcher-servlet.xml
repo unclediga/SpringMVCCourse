@@ -16,6 +16,7 @@
         <property name="converters">
             <list>
                 <bean class="ru.unclediga.converters.JulianDateConverter"/>
+                <bean class="ru.unclediga.converters.ResourceConverter"/>
             </list>
         </property>
     </bean>

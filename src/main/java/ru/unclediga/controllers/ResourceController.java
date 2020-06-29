@@ -29,8 +29,7 @@ public class ResourceController {
 
     @RequestMapping("/{resourceId}")
     @ResponseBody
-    public Resource findResource(Model model, @PathVariable Long resourceId) {
-        final Resource resource = resourceService.find(resourceId);
+    public Resource findResource(Model model, @PathVariable("resourceId") Resource resource) {
         System.out.println("find -> " + resource);
         return resource;
     }
