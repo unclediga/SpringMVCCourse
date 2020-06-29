@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import ru.unclediga.data.entities.Resource;
 import ru.unclediga.data.services.ResourceService;
 
@@ -19,6 +20,11 @@ public class ResourceController {
 
     @Autowired
     private ResourceService resourceService;
+
+    @RequestMapping(value = "/upload",method = RequestMethod.POST)
+    public @ResponseBody String handleUpload(@RequestParam("file") MultipartFile file){
+        return "File size is " + file.getSize();
+    }
 
     @RequestMapping("/add")
     public String add(Model model) {

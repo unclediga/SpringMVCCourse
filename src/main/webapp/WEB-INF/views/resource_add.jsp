@@ -58,6 +58,12 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form:form>
+    
+    <spring:url value="/resource/upload" var="uploadUrl"/>
+    <form action="${uploadUrl}" method="POST" enctype="multipart/form-data">
+        <input name="file" type="file" />
+        <input type="submit" value="Upload">Upload the file!
+    </form>
 
 </div>
 </body>
