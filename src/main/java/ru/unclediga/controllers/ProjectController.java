@@ -5,14 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ObjectError;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import ru.unclediga.data.entities.Project;
 import ru.unclediga.data.services.ProjectService;
-import ru.unclediga.data.validators.ProjectValidator;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -52,7 +48,7 @@ public class ProjectController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String saveProject(@Validated @ModelAttribute Project project, Errors errors, RedirectAttributes attributes) {
+    public String saveProject(@Valid @ModelAttribute Project project, Errors errors, RedirectAttributes attributes) {
         if (errors.hasErrors()) {
             System.out.println("The project did not validate.");
             for (ObjectError o : errors.getAllErrors()) {

@@ -2,20 +2,28 @@ package ru.unclediga.data.entities;
 
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
 public class Project {
     private Long projectId;
+    @Size(min = 2,max = 10)
     private String name;
     @NotBlank
+    @Size(min = 1)
     private String description;
     private Sponsor sponsor;
+    @Min(10)
     private BigDecimal authorizedHours;
+    @Min(20)
     private BigDecimal authorizedFunds;
     private String year;
     private boolean special;
+    @NotNull
     private String type;
     private List<String> pointOfContact;
 

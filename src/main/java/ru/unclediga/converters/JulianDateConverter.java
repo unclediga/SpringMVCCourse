@@ -14,7 +14,8 @@ public class JulianDateConverter implements Converter<String, Date> {
             System.out.println("Invoke julian date converter");
             date = new SimpleDateFormat("yyyyMMdd").parse(source);
         } catch (ParseException e) {
-            e.printStackTrace();
+//            e.printStackTrace();
+            System.err.println("Can't convert empty string!");
         }
         return date;
     }

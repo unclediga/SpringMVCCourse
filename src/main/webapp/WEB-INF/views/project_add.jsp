@@ -46,14 +46,17 @@
         <div class="form-group">
             <label for="project_type">Type</label>
             <form:select path="type" items="${types}" class="selectpicker" id="project_type"/>
+            <form:errors path="type" cssStyle="color: red"/>
         </div>
         <div class="form-group">
             <label for="funds">Authorized Funds</label>
             <form:input class="form-control" id="funds" path="authorizedFunds"/>
+            <form:errors path="authorizedFunds" cssStyle="color: red"/>
         </div>
         <div class="form-group">
             <label for="hours">Authorized Hours</label>
             <form:input lass="form-control" id="hours" path="authorizedHours"/>
+            <form:errors path="authorizedHours" cssStyle="color: red"/>
         </div>
         <div class="form-group">
             <label for="project-description">Description</label>
@@ -79,6 +82,7 @@
         <div class="form-group">
             <label for="special">Special</label>
             <form:checkbox class="form-control" id="special" path="special" />
+            <form:errors path="special" cssStyle="color: red"/>
         </div>
 
         <button type="submit" class="btn btn-primary">Submit</button>
